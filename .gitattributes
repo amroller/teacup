@@ -1,0 +1,16 @@
+# autodetect default
+* text=auto
+
+# Git configuration
+.gitattributes text
+.gitignore text
+
+# Github linguist
+*.cc linguist-language=cpp
+*.inl linguist-language=cpp
+*.h linguist-language=cpp
+
+# Code files
+*.cc text
+*.inl text
+*.h text
