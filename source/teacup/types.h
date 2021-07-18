@@ -38,7 +38,7 @@
 #define TC_CAT(A, B) TC_CAT_(A, B)
 #define TC_CAT_(A, B) A ## B
 
-#define TC_BLOCK_BEGIN(...) for (;__VA__ARGS__;) {
+#define TC_BLOCK_BEGIN(...) for (;__VA_ARGS__;) {
 #define TC_BLOCK_END(...) break; }
 
 #define TC_STATEMENT(S) do { S } while (0);

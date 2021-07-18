@@ -20,7 +20,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include "types.h"
+#include <teacup/types.h>
+#include <teacup/maths.h>
 
 int main(int argc, char** argv) {
     printf("Hello world from teacup\n");

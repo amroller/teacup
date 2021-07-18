@@ -36,9 +36,53 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+enable_testing()
+
 # ==============================================================================
-# Define target
+# Collect source files
+
+set(TEACUP_SOURCE
+    "source/teacup/maths.h"
+    "source/teacup/maths.cc"
+    "source/teacup/teacup.cc"
+    "source/teacup/types.h"
+)
+
+set(TESTS_SOURCE
+    "source/teacup/maths.cc"
+    "source/tests/maths.cc"
+    "source/tests/tests.cc"
+)
+
+# ==============================================================================
+# Define teacup
 
 add_executable(teacup
-    "src/main.cc"
+    ${TEACUP_SOURCE}
 )
+
+target_include_directories(teacup PRIVATE
+    "source/"
+    "source/extern/"
+)
+
+# ==============================================================================
+# Define tests
+
+add_executable(tests
+    ${TESTS_SOURCE}
+)
+
+target_include_directories(tests PRIVATE
+    "source/"
+    "source/extern/"
+)
+
+add_test(tests tests)
+
+# ==============================================================================
+# IDE support
+
+set_directory_properties(PROPERTIES VS_STARTUP_PROJECT teacup)
+source_group(teacup FILES ${TEACUP_SOURCE})
+source_group(tests FILES ${TESTS_SOURCE})
