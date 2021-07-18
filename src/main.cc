@@ -20,9 +20,22 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#include <stdio.h>
+#include "types.h"
 
 int main(int argc, char** argv) {
     printf("Hello world from teacup\n");
+
+    printf("Compiled using: %s\n", TC_COMPILER_NAME);
+
+    if (TC_IS_DEF(TC_OS_MACOS)) {
+        printf("Running on MacOS\n");
+    }
+    else if (TC_IS_DEF(TC_OS_WINDOWS)) {
+        printf("Running on Windows\n");
+    }
+    else if (TC_IS_DEF(TC_OS_LINUX)) {
+        printf("Running on Linux\n");
+    }
+
     return 0;
 }
